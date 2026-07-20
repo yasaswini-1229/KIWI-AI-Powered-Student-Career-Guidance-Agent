@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from config.settings import APP_NAME, APP_VERSION
 from database import Base, engine
+
 from routes.auth import router as auth_router
+from routes.student import router as student_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -11,6 +13,8 @@ app = FastAPI(
 )
 
 app.include_router(auth_router)
+app.include_router(student_router)
+
 
 @app.get("/")
 def home():
