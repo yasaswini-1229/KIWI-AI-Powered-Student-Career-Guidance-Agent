@@ -4,68 +4,54 @@ from schemas.roadmap_schema import RoadmapRequest
 router = APIRouter()
 
 
-@router.post("/roadmap")
+@router.post("/roadmap/generate")
 def generate_roadmap(data: RoadmapRequest):
 
     career = data.career.lower()
 
-    roadmap = []
-
-    if career == "ai engineer":
+    if "ai engineer" in career:
 
         roadmap = [
-            "Learn Python",
+            "Learn Python Basics",
             "Learn SQL",
             "Learn Statistics",
             "Learn Machine Learning",
             "Learn Deep Learning",
-            "Learn Generative AI",
-            "Learn LangChain",
-            "Learn LangGraph",
-            "Build 5 AI Projects",
-            "Create Resume",
-            "Prepare for Interviews",
-            "Apply for Jobs"
+            "Learn NLP and Generative AI",
+            "Build AI Projects",
+            "Learn LangGraph and AI Agents",
+            "Prepare Resume and Interviews"
         ]
 
-    elif career == "data scientist":
+    elif "data scientist" in career:
 
         roadmap = [
-            "Learn Python",
-            "Learn SQL",
-            "Learn Statistics",
-            "Learn Pandas",
-            "Learn NumPy",
-            "Learn Data Visualization",
-            "Learn Machine Learning",
-            "Build Data Science Projects",
-            "Create Resume",
-            "Apply for Jobs"
+            "Python",
+            "Statistics",
+            "Data Analysis",
+            "Machine Learning",
+            "Data Visualization",
+            "Build Data Projects"
         ]
 
-    elif career == "python developer":
+    elif "backend developer" in career:
 
         roadmap = [
-            "Learn Python Basics",
-            "Learn OOP",
-            "Learn File Handling",
-            "Learn APIs",
-            "Learn FastAPI",
-            "Learn SQL",
-            "Learn Git & GitHub",
-            "Build Projects",
-            "Prepare Resume",
-            "Apply for Jobs"
+            "Python",
+            "FastAPI",
+            "Database",
+            "REST APIs",
+            "Authentication",
+            "Deployment"
         ]
 
     else:
 
         roadmap = [
-            "Learn Programming",
+            "Learn Programming Basics",
+            "Learn Data Structures",
             "Build Projects",
-            "Practice Daily",
-            "Prepare Resume",
-            "Apply for Jobs"
+            "Practice Coding"
         ]
 
     return {

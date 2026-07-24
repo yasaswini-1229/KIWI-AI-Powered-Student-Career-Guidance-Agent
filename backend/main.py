@@ -7,12 +7,15 @@ from routes.student import router as student_router
 from routes.career import router as career_router
 from routes.roadmap import router as roadmap_router
 
+
 Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title=APP_NAME,
     version=APP_VERSION
 )
+
 
 app.include_router(auth_router)
 app.include_router(student_router)
